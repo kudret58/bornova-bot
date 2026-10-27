@@ -1,13 +1,14 @@
 import discord
 import asyncio
 import threading
+import os
 from flask import Flask
 
 # ============================================================
-#  AYARLAR
+#  AYARLAR — Render'da Environment Variables'tan okunur
 # ============================================================
-TOKEN = "BOT_TOKEN_BURAYA"
-CHANNEL_ID = 1234567890  # ses kanalı ID
+TOKEN = os.environ.get("TOKEN", "BOT_TOKEN_BURAYA")
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
 # ============================================================
 
 # --- Keep-alive web sunucusu (Render için şart) ---
